@@ -21,18 +21,37 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item to="/profiles/login">
+        <b-nav-item v-if="loggedIn" to="/profiles/login">
           Einloggen
         </b-nav-item>
-        <b-nav-item to="/profiles/register">
+        <b-nav-item v-if="loggedIn" to="/profiles/register">
           Registrieren
         </b-nav-item>
+        <b-dropdown split-to="/profiles/" split :text="name">
+          <b-dropdown-item-button>Freunde</b-dropdown-item-button>
+          <b-dropdown-item-button>Einstellungen</b-dropdown-item-button>
+          <b-dropdown-divider />
+          <b-dropdown-item-button>Ausloggen</b-dropdown-item-button>
+        </b-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script>
+export default {
+  props: {
+    name: {
+      type: String,
+      default: 'Passimoritz'
+    },
+    loggedIn: {
+      type: Boolean,
+      default: false
+    }
+  }
+
+}
 </script>
 
 <style lang="scss">
