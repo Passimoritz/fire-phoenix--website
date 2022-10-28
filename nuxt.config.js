@@ -48,6 +48,10 @@ export default {
   build: {
   },
 
+  bootstrapVue: {
+    icons: true
+  },
+
   styleResources: {
     scss: [
       './assets/scss/main.scss'

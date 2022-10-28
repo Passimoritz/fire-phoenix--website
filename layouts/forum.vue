@@ -1,7 +1,9 @@
 <template>
   <div>
     <navbar />
+    <div class="format-forum">
+      <Nuxt />
+    </div>
     <sidebar />
-    <Nuxt />
   </div>
 </template>
