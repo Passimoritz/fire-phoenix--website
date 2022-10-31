@@ -27,11 +27,17 @@
         <b-nav-item v-if="loggedIn" to="/profiles/register">
           Registrieren
         </b-nav-item>
-        <b-dropdown split-to="/profiles/" split :text="name">
-          <b-dropdown-item-button>Freunde</b-dropdown-item-button>
-          <b-dropdown-item-button>Einstellungen</b-dropdown-item-button>
+        <b-dropdown v-else :split-to="link" split :text="profileName">
+          <b-dropdown-item to="/profiles/friends">
+            Freunde
+          </b-dropdown-item>
+          <b-dropdown-item to="/profiles/settings">
+            Einstellungen
+          </b-dropdown-item>
           <b-dropdown-divider />
-          <b-dropdown-item-button>Ausloggen</b-dropdown-item-button>
+          <b-dropdown-item to="/profiles/logout">
+            Ausloggen
+          </b-dropdown-item>
         </b-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -39,15 +45,21 @@
 </template>
 
 <script>
+
 export default {
   props: {
-    name: {
+    profileName: {
       type: String,
       default: 'Passimoritz'
     },
     loggedIn: {
       type: Boolean,
-      default: false
+      default: true
+    }
+  },
+  data () {
+    return {
+      link: '/profiles/' + this.profileName.toLowerCase()
     }
   }
 

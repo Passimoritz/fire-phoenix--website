@@ -5,7 +5,7 @@
         <b-icon icon="house-fill" />
         <span class="link-text">Startseite</span>
       </b-button>
-      <b-button to="/forum/kategories">
+      <b-button to="/forum/categories">
         <b-icon icon="card-list" />
         <span class="link-text">Kategorien</span>
       </b-button>
