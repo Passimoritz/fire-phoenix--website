@@ -21,10 +21,10 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item v-if="loggedIn" to="/profiles/login">
+        <b-nav-item v-if="!loggedIn" to="/profiles/login">
           Einloggen
         </b-nav-item>
-        <b-nav-item v-if="loggedIn" to="/profiles/register">
+        <b-nav-item v-if="!loggedIn" to="/profiles/register">
           Registrieren
         </b-nav-item>
         <b-dropdown v-else :split-to="link" split :text="profileName">
@@ -68,13 +68,21 @@ export default {
 
 <style lang="scss">
     .navbar {
-        background-color: $color-blue;
+        background-color: $color-primary;
         display: flex;
         flex-wrap: nowrap;
         width: 100%;
 
+        .b-dropdown {
+          background-color: $color-primary !important;
+        }
+
         &-brand {
-            color: white !important;
+            color: $color-white !important;
+        }
+
+        .navbar-toggler {
+          background-color: $color-white;
         }
 
         .nav-link {
@@ -82,7 +90,7 @@ export default {
             transition: .33s;
 
             &:hover {
-                color: $color-turquoise !important;
+                color: $color-third !important;
             }
         }
     }

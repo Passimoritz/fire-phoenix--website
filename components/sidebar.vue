@@ -19,7 +19,7 @@
 
 <style lang="scss">
 .sidebar {
-  background-color: $color-blue;
+  background-color: rgba($color-primary, .8);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -28,11 +28,13 @@
   left: 0;
   position: fixed;
   width: 180px;
-  box-shadow: 6px 0 5px -5px $color-grey;
+  box-shadow: 6px 0 5px -5px $color-primary;
 
   &__wrapper {
     .btn {
-      background-color: $color-grey;
+      background-color: rgba($color-primary, .7);
+      border: none;
+      border-radius: 0px;
       padding-left: 20px;
       font-size: 18px;
       text-align: left;
@@ -42,7 +44,7 @@
 
     .nuxt-link-exact-active {
         background-color: $color-white;
-        color: $color-blue;
+        color: $color-primary;
     }
 
     .b-icon {
