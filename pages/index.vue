@@ -10,7 +10,11 @@
 </template>
 
 <script>
-
+export default {
+  head: {
+    title: 'Startseite'
+  }
+}
 </script>
 
 <style lang="scss">
@@ -35,6 +39,7 @@ body {
     background-color: rgba($color-primary, .8);
 
     & > * {
+      transform: rotate(180deg);
       margin-right: 11px;
     }
 

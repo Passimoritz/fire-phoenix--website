@@ -21,24 +21,11 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item v-if="!loggedIn" to="/profiles/login">
-          Einloggen
-        </b-nav-item>
-        <b-nav-item v-if="!loggedIn" to="/profiles/register">
-          Registrieren
-        </b-nav-item>
-        <b-dropdown v-else :split-to="link" split :text="profileName">
-          <b-dropdown-item to="/profiles/friends">
-            Freunde
-          </b-dropdown-item>
-          <b-dropdown-item to="/profiles/settings">
-            Einstellungen
-          </b-dropdown-item>
-          <b-dropdown-divider />
-          <b-dropdown-item to="/profiles/logout">
-            Ausloggen
-          </b-dropdown-item>
-        </b-dropdown>
+        <b-tooltip target="avatar-login" triggers="hover" placement="bottom" noninteractive>
+          Login | Registieren
+        </b-tooltip>
+        <b-avatar v-if="!loggedIn" id="avatar-login" to="/profiles/login" />
+        <b-avatar v-else :to="link" :text="profileName" />
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -48,13 +35,13 @@
 
 export default {
   props: {
-    profileName: {
-      type: String,
-      default: 'Passimoritz'
-    },
     loggedIn: {
       type: Boolean,
       default: true
+    },
+    profileName: {
+      type: String,
+      default: 'Passimoritz'
     }
   },
   data () {
