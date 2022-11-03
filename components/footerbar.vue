@@ -2,8 +2,12 @@
   <div class="footer">
     <span class="text">&#169; Fire-Phoenix.de</span>
     <div class="footer--right">
-        <NuxtLink class="link" to="/datenschutz">Datenschutz</NuxtLink>
-        <NuxtLink class="link" to="/impressum">Impressum</NuxtLink>
+      <NuxtLink class="link" to="/datenschutz">
+        Datenschutz
+      </NuxtLink>
+      <NuxtLink class="link" to="/impressum">
+        Impressum
+      </NuxtLink>
     </div>
   </div>
 </template>

@@ -1,7 +1,9 @@
 <template>
   <div class="main">
-    <h1>Fire-Phoenix</h1>
-    <h2>Ein brennendes Spielerlebnis</h2>
+    <div class="main__text">
+      <h1>Fire-Phoenix</h1>
+      <h2>Ein brennendes Spielerlebnis</h2>
+    </div>
     <b-button class="btn-floating" to="/team">
       <b-icon icon="arrow-left" />
       Zum Team
@@ -25,6 +27,11 @@ body {
 }
 .main {
   text-align: center;
+
+  &__text {
+    position: relative;
+    z-index: 1000;
+  }
 }
 
 .btn-floating {
@@ -54,12 +61,15 @@ body {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: 3.4s;
+  transition: 2.4s;
   z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 .image {
-  z-index: 0;
+  z-index: 1;
   position: absolute;
   left: 0;
   right: 0;
@@ -73,6 +83,10 @@ body {
 
     &+ .video {
       opacity: 1;
+    }
+
+    &+ h2 {
+      color: $color-white;
     }
   }
 }

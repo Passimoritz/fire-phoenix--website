@@ -21,12 +21,17 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-tooltip target="avatar-login" triggers="hover" placement="auto" noninteractive>
-          Einloggen | Registieren
-        </b-tooltip>
-        <b-avatar v-if="!loggedIn" id="avatar-login" icon="question-lg" to="/profiles/login" />
-        <b-avatar v-else id="profile" :to="profiles[0].url" :src="profiles[0].path" />
-        <b-tooltip target="profile" placement="auto" :title="profiles[0].name" />
+        <div v-if="!loggedIn">
+          <b-avatar id="avatar-login" icon="question-lg" to="/profiles/login" />
+          <b-tooltip target="avatar-login" triggers="hover" placement="auto" noninteractive>
+            Einloggen | Registieren
+          </b-tooltip>
+        </div>
+
+        <div v-else>
+          <b-avatar id="profile" :to="profiles[0].url" :src="profiles[0].path" />
+          <b-tooltip target="profile" placement="auto" :title="profiles[0].name" />
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
