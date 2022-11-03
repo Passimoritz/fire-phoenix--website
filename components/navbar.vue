@@ -21,11 +21,12 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-tooltip target="avatar-login" triggers="hover" placement="bottom" noninteractive>
-          Login | Registieren
+        <b-tooltip target="avatar-login" triggers="hover" placement="auto" noninteractive>
+          Einloggen | Registieren
         </b-tooltip>
-        <b-avatar v-if="!loggedIn" id="avatar-login" to="/profiles/login" />
-        <b-avatar v-else :to="link" :text="profileName" />
+        <b-avatar v-if="!loggedIn" id="avatar-login" icon="question-lg" to="/profiles/login" />
+        <b-avatar v-else id="profile" :to="profiles[0].url" :src="profiles[0].path" />
+        <b-tooltip target="profile" placement="auto" :title="profiles[0].name" />
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -38,18 +39,19 @@ export default {
     loggedIn: {
       type: Boolean,
       default: true
-    },
-    profileName: {
-      type: String,
-      default: 'Passimoritz'
     }
   },
   data () {
     return {
-      link: '/profiles/' + this.profileName.toLowerCase()
+      profiles: [
+        {
+          name: 'Passimoritz',
+          path: 'https://placekitten.com/300/300',
+          url: '/profiles/passimoritz'
+        }
+      ]
     }
   }
-
 }
 </script>
 

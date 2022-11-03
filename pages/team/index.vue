@@ -1,13 +1,10 @@
 <template>
-    <b-breadcrumb :items="teams" />
+  <b-breadcrumb :items="teams" />
 </template>
 
 <script>
 export default {
   props: {
-  },
-  head: {
-    title: 'Team'
   },
   data () {
     return {
@@ -26,6 +23,9 @@ export default {
         }
       ]
     }
+  },
+  head: {
+    title: 'Team'
   }
 }
 </script>

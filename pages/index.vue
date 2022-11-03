@@ -1,5 +1,7 @@
 <template>
   <div class="main">
+    <h1>Fire-Phoenix</h1>
+    <h2>Ein brennendes Spielerlebnis</h2>
     <b-button class="btn-floating" to="/team">
       <b-icon icon="arrow-left" />
       Zum Team
@@ -30,6 +32,7 @@ body {
   position: relative;
   z-index: 1000;
   transition: .33s;
+  margin-top: 20px;
 
   & > * {
     transition: .33s;
@@ -56,13 +59,13 @@ body {
 }
 
 .image {
-  z-index: 1;
+  z-index: 0;
   position: absolute;
   left: 0;
   right: 0;
   margin: 0 auto;
-  margin-top: 40px;
-  width: 40%;
+  margin-top: 70px;
+  width: 33%;
   transition: 1.4s;
 
   &:hover {
