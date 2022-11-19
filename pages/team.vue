@@ -15,6 +15,7 @@
       <b-card class="team__card">
         <b-card-header>
           <b-card-title>{{ selectedTeam }}</b-card-title>
+          <b-button @click="getUserfromTeam">Test </b-button>
         </b-card-header>
       </b-card>
     </b-card-group>
@@ -28,7 +29,11 @@ export default {
       selectedTeam: 'Administratoren',
       teams: [
         {
-          text: 'Administratoren'
+          text: 'Administratoren',
+          users: [
+            { username: 'Passimoritz', path: '', age: '21', job: 'Entwickler und Systemadministrator', other: '' },
+            { username: 'Xrolix', path: '', age: '22', job: 'Teamleitung', other: '' }
+          ]
         },
         {
           text: 'Supporter'
@@ -43,6 +48,13 @@ export default {
     title: 'Team'
   },
   methods: {
+    getUserfromTeam () {
+      this.teams.forEach((team) => {
+        if (team.text.includes(this.selectedTeam)) {
+          console.log(team.users)
+        }
+      })
+    },
     showCardfromSelectedButton (team) {
       this.selectedTeam = team
     }
