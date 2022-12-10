@@ -19,7 +19,7 @@
 
 <style lang="scss">
 .sidebar {
-  background-color: rgba($color-primary, .8);
+  background-color: $color-primary;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -55,7 +55,15 @@
 
 @media screen and (max-width: 991px) {
   .sidebar {
-    width: 60px;
+    width: 75px;
+
+    &__wrapper {
+
+      .btn {
+        padding-left: 25px;
+      }
+    }
+
   }
   .link-text {
       display: none;

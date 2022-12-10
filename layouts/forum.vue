@@ -5,5 +5,6 @@
       <Nuxt />
     </div>
     <sidebar />
+    <footerbar />
   </div>
 </template>

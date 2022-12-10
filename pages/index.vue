@@ -1,5 +1,9 @@
 <template>
   <div class="main">
+    <div class="main__text">
+      <h1>Fire-Phoenix</h1>
+      <h2>Ein brennendes Spielerlebnis</h2>
+    </div>
     <b-button class="btn-floating" to="/team">
       <b-icon icon="arrow-left" />
       Zum Team
@@ -10,7 +14,11 @@
 </template>
 
 <script>
-
+export default {
+  head: {
+    title: 'Startseite'
+  }
+}
 </script>
 
 <style lang="scss">
@@ -19,6 +27,11 @@ body {
 }
 .main {
   text-align: center;
+
+  &__text {
+    position: relative;
+    z-index: 1000;
+  }
 }
 
 .btn-floating {
@@ -26,6 +39,7 @@ body {
   position: relative;
   z-index: 1000;
   transition: .33s;
+  margin-top: 20px;
 
   & > * {
     transition: .33s;
@@ -35,6 +49,7 @@ body {
     background-color: rgba($color-primary, .8);
 
     & > * {
+      transform: rotate(180deg);
       margin-right: 11px;
     }
 
@@ -46,8 +61,11 @@ body {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: 3.4s;
+  transition: 2.4s;
   z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 .image {
@@ -56,8 +74,8 @@ body {
   left: 0;
   right: 0;
   margin: 0 auto;
-  margin-top: 40px;
-  width: 40%;
+  margin-top: 70px;
+  width: 33%;
   transition: 1.4s;
 
   &:hover {
@@ -65,6 +83,10 @@ body {
 
     &+ .video {
       opacity: 1;
+    }
+
+    &+ h2 {
+      color: $color-white;
     }
   }
 }

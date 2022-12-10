@@ -21,24 +21,17 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item v-if="!loggedIn" to="/profiles/login">
-          Einloggen
-        </b-nav-item>
-        <b-nav-item v-if="!loggedIn" to="/profiles/register">
-          Registrieren
-        </b-nav-item>
-        <b-dropdown v-else :split-to="link" split :text="profileName">
-          <b-dropdown-item to="/profiles/friends">
-            Freunde
-          </b-dropdown-item>
-          <b-dropdown-item to="/profiles/settings">
-            Einstellungen
-          </b-dropdown-item>
-          <b-dropdown-divider />
-          <b-dropdown-item to="/profiles/logout">
-            Ausloggen
-          </b-dropdown-item>
-        </b-dropdown>
+        <div v-if="!loggedIn">
+          <b-avatar id="avatar-login" icon="question-lg" to="/profiles/login" />
+          <b-tooltip target="avatar-login" triggers="hover" placement="auto" noninteractive>
+            Einloggen | Registieren
+          </b-tooltip>
+        </div>
+
+        <div v-else>
+          <b-avatar id="profile" :to="profiles[0].url" :src="profiles[0].path" />
+          <b-tooltip target="profile" placement="auto" :title="profiles[0].name" />
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -48,10 +41,6 @@
 
 export default {
   props: {
-    profileName: {
-      type: String,
-      default: 'Passimoritz'
-    },
     loggedIn: {
       type: Boolean,
       default: true
@@ -59,10 +48,15 @@ export default {
   },
   data () {
     return {
-      link: '/profiles/' + this.profileName.toLowerCase()
+      profiles: [
+        {
+          name: 'Passimoritz',
+          path: 'https://placekitten.com/300/300',
+          url: '/profiles/passimoritz'
+        }
+      ]
     }
   }
-
 }
 </script>
 

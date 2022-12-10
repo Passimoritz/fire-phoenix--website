@@ -4,5 +4,6 @@
     <div class="format-normal">
       <Nuxt />
     </div>
+    <footerbar />
   </div>
 </template>
